@@ -9,5 +9,6 @@ app.use(router);
 //app.post - to send data
 //app.get - to fetch data
 //const PORT = 5000;
+// sneha
 
 app.listen(5000, () => console.log("Server started"));
