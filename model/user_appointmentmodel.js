@@ -9,5 +9,9 @@ class User_appointment{
         const sql = 'INSERT INTO user_appointment set ?'
         return db.query(sql, data);
     }
+    deleteuser(data){
+        const sql = "DELETE FROM Users WHERE id = ?"
+        return db.query(sql, data)
+    }
 }
 module.exports = User_appointment

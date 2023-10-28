@@ -17,4 +17,10 @@ const adduser_appointement = async (req, res) => {
         return res.send({ message: "user_appointment not added" })
     }
 }
+const deleteuser = async (req, res) => {
+    const reports = new User_appointment()
+    const id = req.query.id
+    const [deleteuser] = await reports.deleteuser(id)
+    return res.send({ message: "User deleted" })
+}
 module.exports = { getuser_appointment, adduser_appointement }
