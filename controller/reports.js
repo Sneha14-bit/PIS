@@ -26,4 +26,4 @@ const deletereports = async (req, res) => {
     const [deletereports] = await reports.deletereports(id)
     return res.send({ message: "reports deleted" })
 }
-module.exports = { getreports, addreports }
+module.exports = { getreports, addreports, deletereports }
