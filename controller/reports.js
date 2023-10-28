@@ -20,4 +20,10 @@ const addreports = async (req, res) => {
 
 }
 // delete report
+const deletereports = async (req, res) => {
+    const reports = new Report()
+    const id = req.query.id
+    const [deletereports] = await reports.deletereports(id)
+    return res.send({ message: "reports deleted" })
+}
 module.exports = { getreports, addreports }
