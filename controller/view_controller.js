@@ -4,4 +4,7 @@ const home = (req, res) => {
 const login = (req, res) => {
     return res.render('login/index')
 }
-module.exports = { home, login }
+const emergency =(req, res) => {
+    return res.render('emergency/index')
+}
+module.exports = { home, login, emergency }
