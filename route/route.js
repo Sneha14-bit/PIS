@@ -6,11 +6,12 @@ const { getreports, addreports } = require('../controller/reports');
 const { getuser_appointment, adduser_appointement } = require('../controller/user_appointment');
 const { getappointment, addappointment, deleteappointment } = require('../controller/appointment');
 const { getusers, adduser, getuser_byid, deleteuser, updateuser } = require('../controller/users');
-const { home, login, emergency } = require('../controller/view_controller');
+const { home, login, emergency, about_us } = require('../controller/view_controller');
 const router = express.Router()
 router.get('/', home)
 router.get('/login', login)
 router.get('/emergency', emergency)
+router.get('/about_us',about_us)
 // ('/contact')
 // ('/login')
 router.get('/users', getusers)
