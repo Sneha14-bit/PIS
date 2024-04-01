@@ -41,4 +41,26 @@ const updateuser = async (req, res) => {
     const [updateuser] = await user.updateuser(id, columns, values)
     return res.send({ message: "user updated" })
 }
-module.exports = { getusers, adduser, getuser_byid, deleteuser, updateuser }
+const registeruser = async (req, res) => {
+    const data = req.body
+    const user = new User()
+    const userdata = {
+        name: data.userName,
+        mobile_number: data.userNumber,
+        email: "not updated",
+        gender: data.userGender,
+        password: data.password,
+        user_type: "patient"
+    }
+    userdata["status"] = 1
+    userdata["created_date"] = new Date()
+    userdata["updated_date"] = new Date()
+    const [wait] = await user.adduser(userdata)
+    if (wait.affectedRows) {
+        return res.send({ message: "user registered" })
+    }
+    else {
+        return res.send({ message: "user not registered" })
+    }
+}
+module.exports = { getusers, adduser, getuser_byid, deleteuser, updateuser, registeruser }
