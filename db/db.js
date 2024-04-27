@@ -7,6 +7,7 @@ const db = mysql.createPool({
     password: 'Sneha@16',
     database: 'pis'
 })
+
   module.exports = db.promise()
 //promise() - fulfil , reject
 //not line by line execution, 
