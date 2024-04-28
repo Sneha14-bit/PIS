@@ -7,9 +7,11 @@ const { getuser_appointment, adduser_appointement } = require('../controller/use
 const { getappointment, addappointment, deleteappointment } = require('../controller/appointment');
 const { getusers, adduser, getuser_byid, deleteuser, updateuser, registeruser } = require('../controller/users');
 const { home, login, emergency, about_us } = require('../controller/view_controller');
+const { loginuser } = require('../controller/auth');
 const router = express.Router()
 router.get('/', home)
 router.get('/login', login)
+router.post('/login', loginuser)
 router.post('/register', registeruser)
 router.get('/emergency', emergency)
 router.get('/about_us',about_us)

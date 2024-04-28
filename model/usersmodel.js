@@ -22,5 +22,9 @@ class User {
         const sql = "SELECT * FROM users WHERE id = ?"
         return db.query(sql, id)
     }
+    getuser_byemail(email) {
+        const sql = "SELECT * FROM users WHERE email = ?"
+        return db.query(sql, email)
+    }
 }
 module.exports = User
