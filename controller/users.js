@@ -47,7 +47,7 @@ const registeruser = async (req, res) => {
     const userdata = {
         name: data.userName,
         mobile_number: data.userNumber,
-        email: "not updated",
+        email: data.userEmail,
         gender: data.userGender,
         password: data.password,
         user_type: "patient"
