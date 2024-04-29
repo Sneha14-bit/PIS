@@ -8,9 +8,9 @@ const loginuser = async (req, res) => {
         return res.send({ message: "user not found" })
     }
     //console.log(checkuser.password, data.password)
-    if (checkuser[0].password != data.password){
+    if (checkuser[0].password != data.password) {
         return res.send({ message: "password incorrect" })
     }
-        return res.send({ message: "successfully login", id: checkuser[0].id})
+    return res.send({ message: "successfully login", id: checkuser[0].id })
 }
-module.exports = {loginuser}
+module.exports = { loginuser }
