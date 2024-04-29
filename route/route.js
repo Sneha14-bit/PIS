@@ -1,5 +1,15 @@
 //
 const express = require('express');
+const multer = require('multer')
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, 'reports/');
+    },
+    filename: function (req, file, cb) {
+        cb(null, Date.now() + '-' + file.originalname);
+    }
+});
+const reports = multer({ storage: storage })
 
 const { getdepartment, adddepartment, deletedepartment } = require('../controller/department');
 const { getreports, addreports } = require('../controller/reports');
@@ -14,7 +24,7 @@ router.get('/login', login)
 router.post('/login', loginuser)
 router.post('/register', registeruser)
 router.get('/emergency', emergency)
-router.get('/about_us',about_us)
+router.get('/about_us', about_us)
 // ('/contact')
 // ('/login')
 router.get('/users', getusers)
@@ -26,7 +36,7 @@ router.get('/department', getdepartment)
 router.post('/adddepartment', adddepartment)
 router.delete('/deletedepartment', deletedepartment)
 router.get('/reports', getreports)
-router.post('/addreports', addreports)
+router.post('/addreports', reports.single('report'), addreports)
 router.get('/user_appointment', getuser_appointment)
 router.post('/adduser_appointment', adduser_appointement)
 router.get('/appointment', getappointment)

@@ -1,5 +1,6 @@
 const Report = require("../model/reportsmodel")
 
+
 const getreports = async (req, res) => {
     const report = new Report()
     const [all_reports] = await report.getreports()
@@ -8,6 +9,8 @@ const getreports = async (req, res) => {
 const addreports = async (req, res) => {
     const report = new Report()
     const data = req.body
+    const file = req.file
+    data["report_link"] = file.destination + file.filename
     data["created_date"] = new Date()
     data["updated_date"] = new Date()
     const [wait] = await report.addreports(data)

@@ -4,6 +4,7 @@ const cors = require("cors");
 const db = require("./db/db");
 const router = require("./route/route");
 const app = express();
+
 app.use(cors());
 
 app.use(express.json());
